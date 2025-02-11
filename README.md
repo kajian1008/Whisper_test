@@ -17,3 +17,5 @@ Whisper_Airakuの文字起こし。
 ・okoshite.ipynbを実行\
 ランタイム〉すべてのセルを実行\
 マイドライブに「テキスト」フォルダーが作成され、文字起こしされたテキストデータが保存される。
+
+※Dataset.ipynbとtuning.ipynbはモデルのチューニング用。
