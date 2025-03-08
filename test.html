@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音声プレイリスト</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    .playlist {
+      list-style-type: none;
+      padding: 0;
+    }
+    .playlist li {
+      padding: 10px;
+      cursor: pointer;
+      background-color: #ececec;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .playlist li:hover {
+      background-color: #d3d3d3;
+    }
+    iframe {
+      margin-top: 20px;
+      width: 100%;
+      height: 100px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>朝の御理解</h1>
+    <ul class="playlist">
+      <li data-audio="https://drive.google.com/file/d/1ssTzvnDOW19ClqCr4A4G3nmt6qYmiY8m/preview">2025-03-01月</li>
+      <li data-audio="https://drive.google.com/file/d/1RB9v5HFlKXeIvQa6OVc7_w3FeS_4SwM2/preview">2025-03-01朝</li>
+      <li data-audio="https://drive.google.com/file/d/1Htn0R_xfYIi_3FHySFMJ4iTHvXjGmS0k/preview">2025-03-02和賀心デー</li>
+	  <li data-audio="https://drive.google.com/file/d/1tU_MxuJ8flnqOL9lWUJkhVQemXGbRyjS/preview">2025-03-03朝</li>
+	  <li data-audio="https://drive.google.com/file/d/1L147qGynam3I4DrQcPS2MHkOJCDDpjT4/preview">2025-03-04朝</li>
+	  <li data-audio="https://drive.google.com/file/d/1JVjZybXX9Q0Znap2UJ1YkTbORAm84hFx/preview">2025-03-05朝</li>
+	  <li data-audio="https://drive.google.com/file/d/1MaC-3UAUtkibWb17qxyYFaBOzj1f4YwF/preview">2025-03-06朝</li>
+	  <li data-audio="https://drive.google.com/file/d/1lrJ7ltEHvo0MGb2-gzX74u95OXl600uf/preview">2025-03-07朝</li>
+	  <li data-audio="https://drive.google.com/file/d/1_2XKlUkJ5EOeb9JjzGckNg0Ra82N7QCd/preview">2025-03-08朝</li>
+    </ul>
+    <iframe id="audioPlayer" src=""></iframe>
+  </div>
+
+  <script>
+    // プレイリストのリストアイテムを取得
+    const playlistItems = document.querySelectorAll('.playlist li');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    // プレイリストの各アイテムにクリックイベントを追加
+    playlistItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // クリックされたアイテムの音声ファイルを取得
+        const audioFile = item.getAttribute('data-audio');
+        // iframe の src を変更（Google Drive プレビュー）
+        audioPlayer.src = audioFile;
+      });
+    });
+  </script>
+</body>
+</html>
